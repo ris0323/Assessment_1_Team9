@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教育程度</title>
+  </head>
+  <style>
+    * {
+      outline: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+    #myChart {
+      background: #383737; /* 主背景色 */
+    }
+    .container {
+      width: 940px;
+      margin-right: auto;
+      margin-left: auto;
+      *zoom: 1;
+    }
+    .options {
+      color: #fcf8f7;
+    }
+  </style>
+  <body>
+    <div class="container-fluid">
+      <!-- 流動布局 -->
+      <div class="row">
+        <canvas id="myChart" width="800" height="600"></canvas>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+          let originData = [
+            { 統計項目別: "年度", 細項: "博士", "教育程度（人數）": "2" },
+            { 統計項目別: "年度", 細項: "碩士", "教育程度（人數）": "21" },
+            { 統計項目別: "年度", 細項: "大學", "教育程度（人數）": "98" },
+            { 統計項目別: "年度", 細項: "高中", "教育程度（人數）": "56" },
+            { 統計項目別: "年度", 細項: "專科", "教育程度（人數）": "39" },
+            { 統計項目別: "年度", 細項: "國中", "教育程度（人數）": "5" },
+            { 統計項目別: "年度", 細項: "國小", "教育程度（人數）": "2" },
+          ];
+
+          let dataContent = originData.map((item) => {
+            let newItem = {
+              x: item.細項,
+              y: item["教育程度（人數）"], //要上面跟表裡一致
+            };
+            return newItem;
+          });
+
+          console.log(dataContent);
+
+          var ctx = document.getElementById("myChart");
+
+          const data = {
+            // labels: labels,
+            datasets: [
+              {
+                label: "教育程度（人數）",
+                data: dataContent,
+                backgroundColor: [
+                  "rgba(71, 194, 141)",
+                  "rgba(91, 123, 200, 0.9)",
+                ],
+                borderColor: ["rgb(0, 0, 0)", "rgb(0, 0, 0)"], //前一個是柱狀外框線, 後一個是另一個顏色
+                borderWidth: 1,
+                borderRadius: 5,
+              },
+            ],
+          };
+
+          const config = {
+            type: "bar",
+            data: data,
+            options: {
+              color: ["#FCF8F7"],
+              indexAxis: "x",
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          };
+
+          const myChart = new Chart(ctx, config);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

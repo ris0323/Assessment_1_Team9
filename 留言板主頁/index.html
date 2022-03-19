@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <!-- 頁籤標題 -->
+  <title>留言板專題</title>
+  <!-- 引用css/style設計 -->
+  <link href="./skin.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+</head>
+
+<body id="body">
+  <div class="container">
+    <div class="d-flex justify-content-center" style="height: 300px; transform: translateY(50%);">
+      <div class="row align-middle">
+        <div class="title px-2 py-1 mb-2 border rounded-3 text-center border-dark">
+          <h1 style="margin:0;">
+            留言資訊
+          </h1>
+          <p style="margin:0;">請留下您的資訊</p>
+        </div>
+        <div class="d-flex flex-column justify-content-center p-2 border rounded-3" style="background: #FFF;">
+
+          <label for="username">
+            姓名：<input type="text" id="username" name="username" placeholder="請輸入您的姓名"
+              class="BG-Copy p-1 my-2 border rounded-3" size="25">
+
+          </label>
+          <label for="useremail">
+            郵箱：<input type="text" id="useremail" name="useremail" placeholder="username@mail.com"
+              class="BG-Copy p-1 my-2 border rounded-3" size="25">
+
+          </label>
+
+          <label>
+            <select name="question" id="question" class="form-select">
+              <option value="問題類型">問題類型</option>
+              <option value="商品詢問">商品詢問</option>
+              <option value="訂單更改">訂單更改</option>
+              <option value="聯絡客服">聯絡客服</option>
+            </select></label>
+
+          <textarea name="feedback" id="feedback" placeholder="請輸入您的建議" class="BG-Copy p-1 my-2 border rounded-3"
+            style="resize:none; border: 2px #2f3944 solid"></textarea>
+          <div style="text-align: left">
+            <button class="button btn btn-dark btn-sm" onclick="processFormData();addMsg()">送出</button>
+          </div>
+        </div>
+        <div class="py-2 " style="width: 100%;">
+          <button class="btn_admin btn btn-dark btn-md" onclick="location ='../留言板主頁/admin_msg.html'">後臺管理</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 插圖 -->
+  <!-- <div>
+    <img src="./imags/1613306164039.gif" class="img-fluid" style="display:block;margin: 0px auto" alt="responsive image"
+      width="20%" />
+  </div> -->
+  <footer class="py-5">
+    <caption>
+      <h2 class="text-center"><strong>我的歷史紀錄</strong></h2>
+    </caption>
+    <br />
+    <!-- 表格定義 設定置中 -->
+    <div class="container">
+      <table width="800px" class="align-items-center" id="Feedback_table">
+        <tr>
+          <th width="15%">留言時間</th>
+          <th width="15%">問題類型</th>
+          <th width="10%">姓名</th>
+          <th width="30%">Email</th>
+          <th width="20%" class="overflow-auto;">意見內容</th>
+          <th width="10%">刪除</th>
+        </tr>
+      </table>
+    </div>
+  </footer>
+
+</body>
+<!-- 引用js/index的javascript-->
+<script src="./board.js"></script>
+
+</html>

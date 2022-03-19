@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+       
+        .smart-green {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 500px;
+            background: #F8F8F8;
+            padding: 30px 30px 20px 30px;
+            font: 12px Arial, Helvetica, sans-serif;
+            color: rgb(4, 4, 4);
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+        }
+
+        .smart-green h1 {
+            font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+            padding: 20px 0px 20px 40px;
+            display: block;
+            margin: -30px -30px 10px -30px;
+            color: #FFF;
+            background: #0a0a0a;
+            text-shadow: 1px  #949494;
+            max-width: 500px;
+            border-radius: 5px 5px 0px 0px;
+            -webkit-border-radius: 5px 5px 0px 0px;
+            -moz-border-radius: 5px 5px 0px 0px;
+            border-bottom: 1px solid #89AF4C;
+        }
+
+        .smart-green h1 > span {
+            display: block;
+            font-size: 25px;
+            color: #FFF;
+        }
+
+        .smart-green label {
+            display: block;
+            margin: 0px 0px 5px;
+        }
+
+        .smart-green label > span {
+            float: left;
+            margin-top: 10px;
+            color: #090202;
+            font-size: 20PX ;
+            FONT
+        }
+
+        .smart-green input[type="text"], .smart-green input[type="email"], .smart-green textarea, .smart-green select {
+            color: #555;
+            height: 30px;
+            line-height: 15px;
+            width: 100%;
+            padding: 0px 0px 0px 10px;
+            margin-top: 2px;
+            border: 3px solid #0a0a0a;
+            background: #FBFBFB;
+            outline: 0;
+            -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+            box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+            font: normal 14px/14px Arial, Helvetica, sans-serif;
+        }
+
+        .smart-green textarea {
+            height: 100px;
+            padding-top: 10px;
+        }
+
+
+        .smart-green .button {
+            background-color: #0a0a08;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-border-radius: 5px;
+            border: none;
+            padding: 10px 25px 10px 25px;
+            color: #FFF;
+            text-shadow: 1px  #949494;
+        }
+
+        .smart-green .button:hover {
+            background-color: #797b76;
+        }
+
+        .error-msg{
+            color: red;
+            margin-top: 10px;
+        }
+        .success-msg{
+            color: #80A24A;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #body{
+    background-image: url(./imags/cyberpunk.jpg);
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    min-width: 1000px;
+    z-index:-10;
+    zoom: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
+}
+    </style>
+    
+  </head>
+  <body id="body">
+    
+
+    <form action="/form/" method="post" class="smart-green"  >
+        <div class="row">
+        <div class="col-md-12">
+        
+            </div>
+            </div>
+            </a>
+            
+        <h1>留言資訊
+            <span>請留下你的資訊.</span>
+        </h1>
+        <label>
+            <span>姓名 :</span>
+            <input id="name" type="text" name="name" class="error" placeholder="請輸入您的姓名"/>
+            <div class="error-msg"></div>
+        </label>
+    
+        <label>
+            <span>郵箱 :</span>
+            <input id="email" type="email" value="" name="email" placeholder="username@mail.com"/>
+            <div class="error-msg"></div>
+        </label>
+    
+        <label>
+            <span>聯絡地址 :</span>     
+            <input id="address" type="text" value="" name="address" placeholder="請輸入聯絡地址"/>
+            <div class="error-msg"></div>
+        </label>
+        <label class="mb-3">
+            <span>類型:</span>
+            <select name="type" id="" class="form-select">
+              <option value="問題類型">問題類型</option>
+              <option value="商品詢問">商品詢問</option>
+              <option value="訂單更改">訂單更改</option>
+              <option value="聯絡客服">聯絡客服</option>
+                </select></label>
+                <label class="mb-3">
+            <span>留言 :</span>
+            <label class="mb-3"></label>
+            <textarea id="message" name="message"  placeholder="請輸入你的建議"></textarea>
+            <div class="error-msg"></div>
+        </label>
+        <div class="success-msg"></div>
+        <label>
+            <span>&nbsp;</span>
+            <input type="submit" class="button" value="提交"/>
+        </label>
+        <input type='hidden' name='csrfmiddlewaretoken' value='SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa' />
+    </form>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  </body>
+</html>

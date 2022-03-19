@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+
+  <title>MultiChartBar</title>
+
+  <style>
+    * {
+      outline: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    #canvasLeftTop {
+      background: #262b2b;
+      /* 圓餅圖主背景色 */
+      width: 100%;
+      height: 300px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin: 30px 0 0 -300px;
+    }
+
+    #canvasRightTop {
+      background: #3eeb86;
+      /* 寶拉圖主背景色 */
+      width: 100%;
+      height: 300px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin: 30px 0 0 -300px;
+    }
+
+    #canvasRightbom {
+      background: #08437a;
+      /* 婚姻類型主背景色 */
+      width: 100%;
+      height: 300px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin: 30px 0 0 -300px;
+    }
+
+    #canvasLeftbom {
+      background: #ccacdb;
+      /* 綜合圖主背景色 */
+      width: 100%;
+      height: 300px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      margin: 30px 0 0 -300px;
+    }
+
+    .container {
+      width: 940px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .options {
+      color: #a0381f;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div>
+          <canvas id="canvasLeftTop"></canvas>
+        </div>
+      </div>
+      <div class="col-6">
+        <div>
+          <canvas id="canvasRightTop"></canvas>
+        </div>
+      </div>
+      <div class="col-6">
+        <div>
+          <canvas id="canvasLeftbom"></canvas>
+        </div>
+      </div>
+      <div class="col-6">
+        <div>
+          <canvas id="canvasRightbom"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  $(function () {
+    var ctx1 = document.getElementById("canvasLeftTop");
+
+    const canvasLeftTop = new Chart(ctx1, {
+      type: "bar", //圖表類型：長條圖,圓餅圖....等
+
+      data: {
+        labels: ["台北市", "台中市", "台南市", "高雄市", "台東市", "花蓮市"],
+
+        datasets: [
+          {
+            label: "各鄉鎮大學教育程度",
+
+            data: [52, 50, 64, 78, 48, 90], //
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(137, 48, 145, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        color: ["#FCF8F7"],
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    var ctx_2 = document.getElementById("canvasRightTop").getContext("2d");
+    var data_2 = {
+      datasets: [
+        {
+          label: "各鄉鎮教育程度",
+          labels: ["台灣", "大陸", "東南亞", "港澳", "其他"],
+          data: [128, 30, 15, 68, 48],
+          backgroundColor: [
+            "rgb(255, 99, 132)",
+            "rgb(75, 192, 192)",
+            "rgb(255, 205, 86)",
+            "rgb(201, 203, 207)",
+            "rgb(101, 55, 164)",
+          ],
+        },
+      ],
+    };
+    var canvasRightTop = new Chart(ctx_2, {
+      type: "polarArea",
+      data: data_2,
+      options: {
+        responsive: false,
+        color: ["#f39c12"],
+        maintainAspectRatio: false,
+        legend: {
+          position: "top",
+          labels: {
+            boxWidth: 12,
+            color: ["#FCF8F7"],
+          },
+        },
+      },
+    });
+  });
+  var ctx_3 = document.getElementById("canvasRightbom").getContext("2d");
+  var data_3 = {
+    labels: ["相同性別", "不同性別"],
+    datasets: [
+      {
+        label: "婚姻類型",
+        data: [79, 3],
+        backgroundColor: ["#3c8dbc", "#f56954", "#f39c12"],
+      },
+    ],
+  };
+  var canvasRightbom = new Chart(ctx_3, {
+    type: "pie",
+    data: data_3,
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      legend: {
+        position: "bottom",
+        labels: {
+          boxWidth: 12,
+        },
+      },
+      subtitle: {
+        display: true,
+        text: "走向分析",
+      },
+    },
+  });
+  var ctx_4 = document.getElementById("canvasLeftbom").getContext("2d");
+  var data_4 = {
+    datasets: [
+      {
+        label: "各年齡結婚綜合圖表",
+        data: [952, 769, 429, 862, 381, 198, 95],
+        backgroundColor: [
+          "#3c8dbc",
+          "#f56954",
+          "#f39c12",
+          "#BF406A",
+          "#8236A1",
+          "#101708",
+        ],
+      },
+    ],
+    labels: ["台北市", "台中市", "高雄市", "台東市", "宜蘭市", "花蓮市"],
+  };
+  var canvasLeftbom = new Chart(ctx_4, {
+    type: "bar",
+    data: data_4,
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      legend: {
+        position: "bottom",
+        labels: {
+          boxWidth: 12,
+          color: ["#010304"],
+        },
+      },
+    },
+  });
+</script>
+
+</html>

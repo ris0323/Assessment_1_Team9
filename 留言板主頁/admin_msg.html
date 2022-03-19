@@ -1,0 +1,56 @@
+<html>
+<style>
+  .container {
+    margin: 0 auto;
+    width: 600px;
+  }
+</style>
+
+<head>
+  <!-- 頁籤標題 -->
+  <title>留言板專題</title>
+  <!-- 引用css/style設計 -->
+  <link href="./skin.css" rel="stylesheet" type="text/css" />
+  <div>
+    <input id="button_logout" type="button" class="but_logout" name="submit" value="登出"
+      onclick="location ='../留言板登入頁/messboard_login.html'" /></input>
+  </div>
+
+
+</head>
+
+<body id="body_admin" style="align-items: center">
+  <div class="container">
+    <h2 style="text-align: center"><strong>我的歷史紀錄</strong></h2>
+    <table width="800px" style="align-items: center" id="Feedback_table">
+      <tr>
+        <th width="25%">留言時間</th>
+        <th width="25%">問題類型</th>
+        <th width="15%">姓名</th>
+        <th width="20%">Email</th>
+        <th width="30%">意見內容</th>
+        <th width="30%">刪除</th>
+      </tr>
+    </table>
+  </div>
+  </div>
+  <input id="but_back" type="button" class="but_back" name="submit" value="回到上一頁"
+    onclick="location ='../留言板主頁/index.html'" /></input>
+  <!-- <input id="but_back" type="button" onclick="history.back()" value="回到上一頁"></input> -->
+
+
+  <script>
+    var mysql = require('mysql');
+    var db_option = {
+      host: 'localhost',
+      user: 'nodejs',
+      password: 'nodejs',
+      database: 'demo_nodejs',
+      port: 3306
+    };
+  </script>
+</body>
+<!-- 引用js/index的javascript-->
+<script src="./board.js"></script>
+
+</html>
